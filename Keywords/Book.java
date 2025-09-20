@@ -1,11 +1,9 @@
-public class Book {
+class Book {
+    static String libraryName = "BridgeLabz Library";
     private String title;
     private String author;
-    private final String isbn;   // unique id
+    final String isbn;
 
-    private static String libraryName = "City Library";
-
-    // Constructor with this
     public Book(String title, String author, String isbn) {
         this.title = title;
         this.author = author;
@@ -16,18 +14,21 @@ public class Book {
         System.out.println("Library: " + libraryName);
     }
 
-    public void display() {
+    public void displayBookDetails() {
         if (this instanceof Book) {
-            System.out.println("Title: " + title + ", Author: " + author + ", ISBN: " + isbn);
+            System.out.println("Title: " + title);
+            System.out.println("Author: " + author);
+            System.out.println("ISBN: " + isbn);
         }
     }
 
     public static void main(String[] args) {
-        Book b1 = new Book("Java Basics", "James Gosling", "ISBN101");
-        Book b2 = new Book("Python Guide", "Guido", "ISBN102");
+        Book b1 = new Book("Java Basics", "James Gosling", "ISBN001");
+        Book b2 = new Book("Python Advanced", "Guido van Rossum", "ISBN002");
 
         Book.displayLibraryName();
-        b1.display();
-        b2.display();
+        b1.displayBookDetails();
+        System.out.println();
+        b2.displayBookDetails();
     }
 }
